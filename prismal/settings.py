@@ -71,8 +71,8 @@ WSGI_APPLICATION = 'prismal.wsgi.application'
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
-DATABASES = {'default': dj_database_url.config(default='mysql://root:@127.0.0.1:3306/prismal')}
-
+#DATABASES = {'default': dj_database_url.config(default='mysql://root:@127.0.0.1:3306/prismal')}
+DATABASES = {'default': dj_database_url.config(default='mysql://be2fb70d6cec6e:5b509cec@us-cdbr-east-05.cleardb.net/heroku_4e873788e2cfb1e?reconnect=true')}
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
