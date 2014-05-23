@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Link(models.Model):
     url = models.URLField(max_length=200)
@@ -12,7 +12,13 @@ class LifeOccupation(models.Model):
     start_date = models.DateField("date started")
     finished_date = models.DateField("date finished", null=True, blank=True)
     name = models.CharField("Event title", max_length=200)
-    
+    hour_per_week = models.PositiveSmallIntegerField(
+        "How many hours per week", 
+        default=0,
+        validators=[
+            MaxValueValidator(168),
+            MinValueValidator(0)
+        ])
     class Meta:
         ordering = ('finished_date', 'name',)
     
@@ -60,6 +66,7 @@ class Place(models.Model):
     def __str__(self):
         return u'%s, %s' % (self.name, self.city.__str__())
 
+# is-a LifeOccupation
 class Education(models.Model):
     life_occupation = models.OneToOneField(LifeOccupation)
     place = models.ForeignKey(Place, verbose_name="school")
@@ -73,6 +80,7 @@ class Task(models.Model):
     def __str__(self):
         return self.name
 
+# is-a LifeOccupation
 class WorkExperience(models.Model):
     life_occupation = models.OneToOneField(LifeOccupation)
     place = models.ForeignKey(Place, verbose_name="place worked at")
