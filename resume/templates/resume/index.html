@@ -2,23 +2,22 @@
 {% load staticfiles %}
 
 
-{% get_current_language as LANGUAGE_CODE %}
-
-{% get_language_info for LANGUAGE_CODE as lang %}
-
-<link rel="stylesheet" type="text/css" href="{% static 'resume/style.css' %}" />
+<link rel="stylesheet" type="text/css"	href="{% static 'resume/style.css' %}" />
 
 {% trans "This is the title" as the_title %}
 
+
+
+{% include "setlang.html" %}
+
+
 <h1>{{ the_title }}</h1>
-<p>{% trans "Language" %} : {{ lang.name_local }}</p>
 <p>{% trans "The list" %}:</p>
 {% if latest_occupation_list %}
-	<ul>
+<ul>
 	{% for occupation in latest_occupation_list %}
-		<li>{{ occupation }}</li>
-	{% endfor %}
-	</ul>
+	<li>{{ occupation }}</li> {% endfor %}
+</ul>
 {% else %}
-	<p>{% trans "No life occupation are available." %}</p>
+<p>{% trans "No life occupation are available." %}</p>
 {% endif %}

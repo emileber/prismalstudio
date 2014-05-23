@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.utils.translation import ugettext_lazy as _
 
 class Link(models.Model):
     url = models.URLField(max_length=200)
@@ -9,11 +10,11 @@ class Link(models.Model):
 
 
 class LifeOccupation(models.Model):
-    start_date = models.DateField("date started")
-    finished_date = models.DateField("date finished", null=True, blank=True)
-    name = models.CharField("Event title", max_length=200)
+    start_date = models.DateField(_("date started"))
+    finished_date = models.DateField(_("date finished"), null=True, blank=True)
+    name = models.CharField(_("Event title"), max_length=200)
     hour_per_week = models.PositiveSmallIntegerField(
-        "How many hours per week", 
+        help_text=_("How many hours per week does that occupation takes you?"), 
         default=0,
         validators=[
             MaxValueValidator(168),
@@ -39,7 +40,7 @@ class Country(models.Model):
     code = models.CharField(max_length=2, blank=True)  # not unique as there are duplicates (IT)
     
     class Meta:
-        verbose_name_plural = 'Countries'
+        verbose_name_plural = _('Countries')
         ordering = ('name',)
     
     def __str__(self):
@@ -49,7 +50,7 @@ class City(models.Model):
     name = models.CharField(max_length=40, unique=True)
     country = models.ForeignKey(Country)
     class Meta:
-        verbose_name_plural = 'Cities'
+        verbose_name_plural = _('Cities')
         ordering = ('country', 'name',)
     
     def __str__(self):
@@ -69,7 +70,7 @@ class Place(models.Model):
 # is-a LifeOccupation
 class Education(models.Model):
     life_occupation = models.OneToOneField(LifeOccupation)
-    place = models.ForeignKey(Place, verbose_name="school")
+    place = models.ForeignKey(Place, verbose_name=_("school"))
     
     def __str__(self):
         return "%s at %s" % (self.life_occupation.name, self.place.__str__())
@@ -83,7 +84,7 @@ class Task(models.Model):
 # is-a LifeOccupation
 class WorkExperience(models.Model):
     life_occupation = models.OneToOneField(LifeOccupation)
-    place = models.ForeignKey(Place, verbose_name="place worked at")
+    place = models.ForeignKey(Place, verbose_name=_("place worked at"))
     task = models.ManyToManyField(Task)
     
     def __str__(self):

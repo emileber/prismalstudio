@@ -7,7 +7,7 @@ https://docs.djangoproject.com/en/1.6/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
-
+from django.utils.translation import ugettext_lazy as _
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 # BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -78,6 +78,10 @@ DATABASES = {'default': dj_database_url.config()}
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
 #LANGUAGE_CODE = 'en-us'
+LANGUAGES = (
+    ('fr', _('French')),
+    ('en', _('English')),
+)
 LANGUAGE_CODE = 'fr'
 
 TIME_ZONE = 'UTC'
@@ -95,6 +99,15 @@ USE_TZ = True
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    #"django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    #"django.core.context_processors.media",
+    #"django.core.context_processors.static",
+    #"django.core.context_processors.tz",
+    #"django.contrib.messages.context_processors.messages"
+)
 
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()

@@ -8,13 +8,45 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-18 03:56-0400\n"
+"POT-Creation-Date: 2014-05-23 03:10-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: .\models.py:13
+msgid "date started"
+msgstr "Date de début"
+
+#: .\models.py:14
+msgid "date finished"
+msgstr "Date de fin"
+
+#: .\models.py:15
+msgid "Event title"
+msgstr "Titre de l'évènement"
+
+#: .\models.py:17
+msgid "How many hours per week does that occupation takes you?"
+msgstr "Combien d'heures par semaine accordez-vous à cette occupation?"
+
+#: .\models.py:43
+msgid "Countries"
+msgstr "Pays"
+
+#: .\models.py:53
+msgid "Cities"
+msgstr "Villes"
+
+#: .\models.py:73
+msgid "school"
+msgstr "École"
+
+#: .\models.py:87
+msgid "place worked at"
+msgstr "Endroit où vous avez travaillé"
 
 #: .\templates\resume\index.html:11
 msgid "This is the title"
