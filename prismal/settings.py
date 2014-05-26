@@ -7,7 +7,6 @@ https://docs.djangoproject.com/en/1.6/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
-from django.utils.translation import ugettext_lazy as _
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import dj_database_url
@@ -82,9 +81,10 @@ DATABASES = {'default': dj_database_url.config()}
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
 #LANGUAGE_CODE = 'en-us'
+ugettext_lazy = lambda s: s
 LANGUAGES = (
-    ('fr', _('French')),
-    ('en', _('English')),
+    ('fr', ugettext_lazy('French')),
+    ('en', ugettext_lazy('English')),
 )
 LANGUAGE_CODE = 'fr'
 
@@ -95,6 +95,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 
 
 # Static files (CSS, JavaScript, Images)
