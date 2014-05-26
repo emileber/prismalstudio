@@ -10,8 +10,11 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 from django.utils.translation import ugettext_lazy as _
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import dj_database_url
+import sys
 # BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -31,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -71,7 +75,7 @@ WSGI_APPLICATION = 'prismal.wsgi.application'
 # }
 
 # Parse database configuration from $DATABASE_URL
-import dj_database_url
+
 DATABASES = {'default': dj_database_url.config()}
 #DATABASES = {'default': dj_database_url.config(default='mysql://be2fb70d6cec6e:5b509cec@us-cdbr-east-05.cleardb.net/heroku_4e873788e2cfb1e')}
 # Internationalization
@@ -106,7 +110,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     #"django.core.context_processors.media",
     #"django.core.context_processors.static",
     #"django.core.context_processors.tz",
-    #"django.contrib.messages.context_processors.messages"
+    #"django.contrib.messages.context_processors.messages",
+    'django.core.context_processors.request',
 )
 
 
@@ -124,3 +129,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+SUIT_CONFIG = {
+    'ADMIN_NAME': 'Prismal Studio',
+}
+
+
