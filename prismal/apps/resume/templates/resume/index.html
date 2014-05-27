@@ -3,6 +3,17 @@
 {% load staticfiles %}
 
 
+{# Load the tag library #}
+    {% load bootstrap3 %}
+
+    {# Load CSS and JavaScript #}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+    {# Display django.contrib.messages as Bootstrap alerts #}
+    {% bootstrap_messages %}
+
+
 {%block title %}Team | Prismal Studio{% endblock %}
 
 {% block additional_style %}
@@ -27,6 +38,21 @@
 {% else %}
 <p>{% trans "No life occupation are available." %}</p>
 {% endif %}
+
+
+
+
+
+    {# Display a form #}
+    <form action="/url/to/submit/" method="post" class="form">
+        {% csrf_token %}
+        {% buttons %}
+            <button type="submit" class="btn btn-primary">
+                {% bootstrap_icon "star" %} Submit
+            </button>
+        {% endbuttons %}
+    </form>
+
 
 </div>
 </div>

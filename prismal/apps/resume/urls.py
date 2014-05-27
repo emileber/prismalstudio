@@ -1,9 +1,9 @@
 from django.conf.urls import patterns, url
-
 from resume import views
 
 urlpatterns = patterns('',
     url(r'^$', views.IndexView.as_view(), name='resume_index'),
+    
     # ex: /polls/5/
     #url(r'^(?P<pk>\d+)/$', views.DetailView.as_view(), name='detail'),
     # ex: /polls/5/results/

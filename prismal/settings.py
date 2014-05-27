@@ -41,7 +41,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'south',
+    'bootstrap3',
+    'jquery',
     'resume',
+    
 )
 
 MIDDLEWARE_CLASSES = (
@@ -138,4 +141,4 @@ SUIT_CONFIG = {
     'ADMIN_NAME': 'Prismal Studio',
 }
 
-
+BOOTSTRAP3 = {'jquery_url': STATIC_URL + "js/jquery.js", }

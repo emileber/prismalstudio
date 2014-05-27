@@ -3,15 +3,14 @@
 {% load i18n %}
 
 
-
 {% block nav_menu %}
 <div class="header">
     <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
 
         <ul>
-            <li class="pure-menu-selected"><a href="{% url 'index' %}">{% trans "Home" %}</a></li>
-            <li><a href="#">{% trans "Projects" %}</a></li>
-            <li><a href="{% url 'resume:resume_index' %}">{% trans "Team" %}</a></li>
+            <li class="pure-menu-selected"><a href="{% url 'index' %}">{{ home_link }}</a></li>
+            <li><a href="#">{{ project_link }}</a></li>
+            <li><a href="{% url 'resume:resume_index' %}">{{ about_link }}</a></li>
         </ul>
     </div>
 </div>
@@ -30,10 +29,12 @@
     </div>
 </div>
 
-<div class="content-prismal-seat">
-	<div class="is-right">
-		<img src="{% static 'prismal/img/prismal_seat.jpg' %}" class="pure-img-responsive"/>
+<div id="prismal-seat-container">
+
+	<div id="prismal-seat">
+		<img src="{% static 'prismal/img/prismal_seat.jpg' %}" />
 	</div>
+
 </div>
 
 <div class="content-wrapper">
@@ -150,6 +151,8 @@
 </div>
 
 <script src="http://yui.yahooapis.com/3.14.1/build/yui/yui.js"></script>
+<script type="text/javascript" src="{% static 'common/js/script.js' %}"></script>
+<script type="text/javascript" src="{% static 'prismal/js/script.js' %}"></script>
 <script>
 YUI().use('node-base', 'node-event-delegate', function (Y) {
     // This just makes sure that the href="#" attached to the <a> elements
@@ -158,6 +161,17 @@ YUI().use('node-base', 'node-event-delegate', function (Y) {
         e.preventDefault();
     }, 'a[href="#"]');
 });
+
+// on scroll, fade 
+$(window).scroll(function(i){
+	//console.log("scroll: " + $(window).scrollTop() + "/" + $(window).height());
+	var distance = $(window).height()/2;
+	//$('div.splash').css({'opacity':( distance-$(window).scrollTop() )/distance});
+	
+	fadeOut('div.splash', ( distance-$(window).scrollTop() )/distance);
+})
+
+$('div.splash-container').mousemove(seatMouseMoveHandler);
 </script>
 
 

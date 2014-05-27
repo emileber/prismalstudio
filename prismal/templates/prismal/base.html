@@ -59,18 +59,24 @@
 
 {% block additional_style %}{% endblock %}
 
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
 
 </head>
 <body>
+
+{% trans "Home" as home_link %}
+{% trans "Projects" as project_link %}
+{% trans "About" as about_link %}
+
 {% block nav_menu %}
 <div class="header">
     <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
         <a class="pure-menu-heading" href="{% url 'index' %}">Prismal Studio</a>
 
         <ul>
-            <li class="pure-menu-selected"><a href="{% url 'index' %}">{% trans "Home" %}</a></li>
-            <li><a href="#">{% trans "Projects" %}</a></li>
-            <li><a href="{% url 'resume:resume_index' %}">{% trans "Team" %}</a></li>
+            <li class="pure-menu-selected"><a href="{% url 'index' %}">{{ home_link }}</a></li>
+            <li><a href="#">{{ project_link }}</a></li>
+            <li><a href="{% url 'resume:resume_index' %}">{{ about_link }}</a></li>
         </ul>
     </div>
 </div>
