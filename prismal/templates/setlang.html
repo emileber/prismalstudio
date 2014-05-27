@@ -1,7 +1,7 @@
 {% load i18n %}
-<form name="setLangForm" action="{% url 'set_language' %}" method="post">
+
+<form name="setLangForm" action="{% url 'set_language' %}" method="post" >
 {% csrf_token %}
-<input name="next" type="hidden" value="{{ redirect_to }}" />
 <ul>
 {% get_language_info_list for LANGUAGES as languages %}
 	{% for language in languages %}
@@ -9,7 +9,7 @@
 	
 	{% if language.code != LANGUAGE_CODE %}
 	<li><input type="hidden" name="language" value="{{ language.code }}" /> 
-	<a href="#" onclick="document.setLangForm.submit();return false;">{{ language.name_local }}</a></li>
+	<a href="#" onclick="document.setLangForm.submit();return false;">{{ language.code }}</a></li>
 	{% endif %}
 
 

@@ -1,16 +1,22 @@
+{% extends "prismal/base.html" %}
 {% load i18n %}
 {% load staticfiles %}
 
 
-<link rel="stylesheet" type="text/css"	href="{% static 'resume/style.css' %}" />
+{%block title %}Team | Prismal Studio{% endblock %}
 
-{% trans "This is the title" as the_title %}
+{% block additional_style %}
+<link rel="stylesheet" type="text/css"	href="{% static 'resume/css/style.css' %}" />
+{% endblock %}
 
 
+{% block body %}
+<div class="content-wrapper">
+<div class="content">
 
 {% include "setlang.html" %}
 
-
+{% trans "This is the title" as the_title %}
 <h1>{{ the_title }}</h1>
 <p>{% trans "The list" %}:</p>
 {% if latest_occupation_list %}
@@ -21,3 +27,7 @@
 {% else %}
 <p>{% trans "No life occupation are available." %}</p>
 {% endif %}
+
+</div>
+</div>
+{% endblock %}
