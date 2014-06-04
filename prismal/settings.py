@@ -49,7 +49,8 @@ INSTALLED_APPS = (
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
+    #'django.middleware.locale.LocaleMiddleware',
+    'solid_i18n.middleware.SolidLocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -91,6 +92,9 @@ LANGUAGES = (
 )
 LANGUAGE_CODE = 'fr'
 
+# Optional. If you want to use redirects, set this to True
+SOLID_I18N_USE_REDIRECTS = False
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -119,6 +123,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     #"django.core.context_processors.tz",
     #"django.contrib.messages.context_processors.messages",
     'django.core.context_processors.request',
+    'prismal.context_processors.solid_i18n',
 )
 
 
@@ -126,7 +131,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Allow all host headers
-ALLOWED_HOSTS = ['*']
+#ALLOWED_HOSTS = ['*']
 
 # Static asset configuration
 
