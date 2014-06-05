@@ -13,7 +13,7 @@ import dj_database_url
 import sys
 # BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 #BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-BASE_DIR = os.path.dirname(os.path.abspath(__file__)+"/../../")
+BASE_DIR = os.path.normpath(os.path.dirname(os.path.abspath(__file__) ) + "/..")
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 
 
@@ -116,6 +116,8 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Static asset configuration
 
 STATIC_ROOT = 'staticfiles'
+
+
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (

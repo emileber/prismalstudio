@@ -5,6 +5,9 @@ Created on 2014-06-05
 '''
 from .base import *
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    '127.0.0.1', 
+    '.prismalstudio.herokuapp.com',
+]
