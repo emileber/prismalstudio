@@ -1,4 +1,4 @@
-{% load staticfiles %}{% load i18n %}<!--       :+NNDMNMMMMM 7ZMOMMMMMMMMNMMMMMMMM8MMMMMMMMMMMM 7MMMM8MMMMD7...  
+<!--       :+NNDMNMMMMM 7ZMOMMMMMMMMNMMMMMMMM8MMMMMMMMMMMM 7MMMM8MMMMD7...  
      .,:~?IZ++$7NDMMMMN.$MI$7MMMMMM.IDMMMMNMMMDMMMN8MMMMMMIMMMMMZMMMMMD7.   
  ..:,..      ??O7OMMMM.ZM= 7Z$MMM8  7+=MMMMZMMNMMMM+DNMMMMDNNNMO$MMMINM8+   
             +$Z~ZOMMMDI8~ ,IOMMMMN7I?~  MMNDMMMNMMMI~DNDMMMNZNNO78MD=,O88I=~
@@ -27,39 +27,50 @@
                                               / __/ _ \| '_ ` _ \ 
                                              | (_| (_) | | | | | |
                                             (_)___\___/|_| |_| |_|
- --><!doctype html><html lang="{{ LANGUAGE_CODE }}">
+ -->
+{% load staticfiles %}
+{% load i18n %}
+{% load tags %}
+ 
+{% url 'index' as index_url %}
+{% url 'resume:resume_index' as resume_url %}
+ 
+ 
+ <!doctype html><html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="{% block meta_description %}A layout example that shows off a responsive product landing page.{% endblock %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="{% block meta_description %}A layout example that shows off a responsive product landing page.{% endblock %}">
 
     <title>{% block title %}Prismal Studio{% endblock %}</title>
 
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure.css">
-
-
-  
-    <!--[if lte IE 8]>
-        <link rel="stylesheet" href="css/main-grid-old-ie.css">
-    <![endif]-->
-    <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="{% static 'prismal/css/main-grid.css' %}">
-    <!--<![endif]-->
-  
-  
-    <!--[if lte IE 8]>
-        <link rel="stylesheet" href="css/layouts/marketing-old-ie.css">
-    <![endif]-->
-    <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="{% static 'prismal/css/layouts/marketing.css' %}">
-    <!--<![endif]-->
-
-
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-
-{% block additional_style %}{% endblock %}
-
-<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure.css">
+	
+	
+	  
+	    <!--[if lte IE 8]>
+	        <link rel="stylesheet" href="css/main-grid-old-ie.css">
+	    <![endif]-->
+	    <!--[if gt IE 8]><!-->
+	        <link rel="stylesheet" href="{% static 'prismal/css/main-grid.css' %}">
+	    <!--<![endif]-->
+	  
+	  
+	    <!--[if lte IE 8]>
+	        <link rel="stylesheet" href="css/layouts/marketing-old-ie.css">
+	    <![endif]-->
+	    <!--[if gt IE 8]><!-->
+	        <link rel="stylesheet" href="{% static 'prismal/css/layouts/marketing.css' %}">
+	    <!--<![endif]-->
+	
+	
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+	
+	{% block additional_style %}{% endblock %}
+	
+	<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+	<script type="text/javascript" src="{% static 'common/js/konami.js' %}"></script>
+	
 
 </head>
 <body>
@@ -71,12 +82,12 @@
 {% block nav_menu %}
 <div class="header">
     <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
-        <a class="pure-menu-heading" href="{% url 'index' %}">Prismal Studio</a>
+       {% block nav_menu_header %}<a class="pure-menu-heading" href="{% url 'index' %}">Prismal Studio</a>{% endblock %}
 
         <ul>
-            <li class="pure-menu-selected"><a href="{% url 'index' %}">{{ home_link }}</a></li>
+            <li class="{% active request index_url %}"><a href="{% url 'index' %}">{{ home_link }}</a></li>
             <li><a href="#">{{ project_link }}</a></li>
-            <li><a href="{% url 'resume:resume_index' %}">{{ about_link }}</a></li>
+            <li class="{% active request resume_url %}"><a href="{% url 'resume:resume_index' %}">{{ about_link }}</a></li>
         </ul>
     </div>
 </div>
@@ -86,8 +97,13 @@
 {% block splash %}
 {% endblock %}
 
+
 {% block body %}
 {% endblock %}
 
+
+<script type="text/javascript">
+	var easter_egg = new Konami("{% url 'admin:index' %}");
+</script>
 </body>
 </html>

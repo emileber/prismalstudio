@@ -12,7 +12,8 @@ import os
 import dj_database_url
 import sys
 # BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+#BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__)+"/../../")
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 
 
@@ -23,11 +24,8 @@ sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 SECRET_KEY = 'z%140qb^bb@otgl#j5w65rfk-56+v%9%z#+ci9isvr5b&%9*%w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 TEMPLATE_DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -44,7 +42,6 @@ INSTALLED_APPS = (
     'bootstrap3',
     'jquery',
     'resume',
-    
 )
 
 MIDDLEWARE_CLASSES = (
@@ -62,25 +59,10 @@ ROOT_URLCONF = 'prismal.urls'
 
 WSGI_APPLICATION = 'prismal.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'prismal',
-#         'USER': 'root',
-#         'PASSWORD': '',
-#         'HOST': '127.0.0.1',
-#         'PORT': '3306',
-#     }
-# }
-
 # Parse database configuration from $DATABASE_URL
 
 DATABASES = {'default': dj_database_url.config()}
-#DATABASES = {'default': dj_database_url.config(default='mysql://be2fb70d6cec6e:5b509cec@us-cdbr-east-05.cleardb.net/heroku_4e873788e2cfb1e')}
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
@@ -130,8 +112,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# Allow all host headers
-#ALLOWED_HOSTS = ['*']
 
 # Static asset configuration
 
