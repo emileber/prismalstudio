@@ -20,7 +20,7 @@ var Konami = function (callback) {
 				obj["e" + type + fn] = fn;
 				obj[type + fn] = function () {
 					obj["e" + type + fn](window.event, ref_obj);
-				}
+				};
 				obj.attachEvent("on" + type, obj[type + fn]);
 			}
 		},
@@ -42,7 +42,7 @@ var Konami = function (callback) {
 			this.iphone.load(link);
 		},
 		code: function (link) {
-			window.location = link
+			window.location = link;
 		},
 		iphone: {
 			start_x: 0,
@@ -93,7 +93,7 @@ var Konami = function (callback) {
 				}
 			}
 		}
-	}
+	};
 
 	typeof callback === "string" && konami.load(callback);
 	if (typeof callback === "function") {

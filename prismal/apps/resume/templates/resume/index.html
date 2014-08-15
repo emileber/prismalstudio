@@ -1,17 +1,19 @@
 {% extends "prismal/base.html" %}
+{% comment %}
+<!-- 
+@file		index.html
+@author		Emile Bergeron
+@date		2014/06/05
+@app		resume
+ -->
+{% endcomment %}
+
+
 {% load i18n %}
 {% load staticfiles %}
 
 
-{# Load the tag library #}
-    {% load bootstrap3 %}
 
-    {# Load CSS and JavaScript #}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-
-    {# Display django.contrib.messages as Bootstrap alerts #}
-    {% bootstrap_messages %}
 
 
 {%block title %}Team | Prismal Studio{% endblock %}
@@ -40,18 +42,6 @@
 {% endif %}
 
 
-
-
-
-    {# Display a form #}
-    <form action="/url/to/submit/" method="post" class="form">
-        {% csrf_token %}
-        {% buttons %}
-            <button type="submit" class="btn btn-primary">
-                {% bootstrap_icon "star" %} Submit
-            </button>
-        {% endbuttons %}
-    </form>
 
 
 </div>

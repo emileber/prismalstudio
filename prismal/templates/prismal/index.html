@@ -1,4 +1,13 @@
 {% extends "prismal/base.html" %}
+{% comment %}
+<!-- 
+@file		index.html
+@author		Emile Bergeron
+@date		2014/06/05
+@app		prismal
+ -->
+{% endcomment %}
+
 {% load staticfiles %}
 {% load i18n %}
 
@@ -19,11 +28,9 @@
 </div>
 
 <div id="prismal-seat-container">
-
 	<div id="prismal-seat">
-		<img src="{% static 'prismal/img/prismal_seat.jpg' %}" />
+		<img src="{% static 'prismal/img/prismal_seat.jpg' %}" alt="prismal pink seat logo" />
 	</div>
-
 </div>
 
 <div class="content-wrapper">
@@ -141,6 +148,8 @@
 
 <script src="http://yui.yahooapis.com/3.14.1/build/yui/yui.js"></script>
 <script type="text/javascript" src="{% static 'common/js/script.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'prismal/js/parabola.js' %}"></script>
 <script type="text/javascript" src="{% static 'prismal/js/script.js' %}"></script>
 <script>
 
@@ -162,7 +171,11 @@ $(window).scroll(function(i){
 	fadeOut('div.splash', ( distance-$(window).scrollTop() )/distance);
 })
 
-$('div.splash-container').mousemove(seatMouseMoveHandler);
+// pink seat movement
+var prismalSeat = new PrismalSeat('#prismal-seat');
+$('div.splash-container').mousemove(function(event){
+	prismalSeat.update(event);
+});
 
 </script>
 
