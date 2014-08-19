@@ -18,6 +18,8 @@ urlpatterns = patterns('',
     # url(r'^$', 'prismal.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     url(r'^i18n/', include('django.conf.urls.i18n')),
+    
+    url(r'^robots\.txt$', TemplateView.as_view(template_name='robots.txt',content_type='text/plain')),
 )
 
 urlpatterns += solid_i18n_patterns('',

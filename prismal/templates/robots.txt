@@ -1,0 +1,9 @@
+User-Agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /*/admin/
+
+# this technically isn't valid, since for some godforsaken reason 
+# sitemap paths must be ABSOLUTE and not relative. 
+#
+#Sitemap: /sitemap.xml
