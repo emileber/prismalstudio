@@ -5,13 +5,15 @@ Created on 2014-06-05
 '''
 from .base import *
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    '127.0.0.1', 
+    '127.0.0.1', # staticfile handling specificly doesn't work on debug false
     '.prismalstudio.herokuapp.com',
     '.prismalstudio.com',
 ]
+
+ALLOWED_HOSTS = ['*']
 
 MIDDLEWARE_CLASSES += (
     # prevent loading the site in an Iframe.
