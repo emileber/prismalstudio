@@ -22,3 +22,26 @@ You want to start wamp beforehand and if not already done, create a database for
 Use SourceTree.
 
 Or, do it manually with the already open command prompt window.
+
+	git add .
+	git commit -m "your commit message"
+
+# Hosting on Heroku #
+
+See [Getting Started with Heroku](https://devcenter.heroku.com/articles/quickstart "Quickstart with Heroku").
+
+Download the toolbelt, then log you in using the cmd:
+
+	heroku login
+
+other usefull heroku commands:
+
+	// open the current app in browser
+	heroku open
+	heroku logs
+	// for a django test shell
+	heroku run python manage.py shell
+
+## Pushing to Heroku ##
+
+	git push heroku master
