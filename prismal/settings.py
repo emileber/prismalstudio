@@ -13,7 +13,7 @@ import dj_database_url
 import sys
 # BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 #BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-BASE_DIR = os.path.normpath(os.path.dirname(os.path.abspath(__file__) ) + "/..")
+BASE_DIR = os.path.normpath(os.path.dirname(os.path.abspath(__file__) ) )
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 
 
@@ -26,8 +26,15 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-TEMPLATE_DEBUG = True
+DEBUG = bool(os.environ.get('DEBUG', False)) # set to true locally
+TEMPLATE_DEBUG = bool(os.environ.get('DEBUG', False)) # set to true locally
 
+# set to all '*' locally for testing with env var.
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', [
+    #'127.0.0.1', # staticfile handling specificly doesn't work on debug false
+    '.prismalstudio.herokuapp.com',
+    '.prismalstudio.com',
+])
 
 # Application definition
 
@@ -45,6 +52,11 @@ INSTALLED_APPS = (
     'resume',
 )
 
+if DEBUG:
+    INSTALLED_APPS += (
+        'debug_toolbar',
+    )
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     #'django.middleware.locale.LocaleMiddleware',
@@ -60,8 +72,7 @@ ROOT_URLCONF = 'prismal.urls'
 
 WSGI_APPLICATION = 'prismal.wsgi.application'
 
-# Parse database configuration from $DATABASE_URL
-
+# Parse database configuration from $DATABASE_URL env var
 DATABASES = {'default': dj_database_url.config()}
 
 # Internationalization
@@ -90,11 +101,6 @@ LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.6/howto/static-files/
-
-
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -113,8 +119,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-
-# Static asset configuration
+# Static asset configuration (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_ROOT = 'staticfiles'
 
@@ -125,8 +131,19 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+# admin template
 SUIT_CONFIG = {
     'ADMIN_NAME': 'Prismal Studio',
 }
 
 BOOTSTRAP3 = {'jquery_url': STATIC_URL + "js/jquery.js", }
+
+
+# PRODUCTION specific code.
+if not DEBUG:
+    MIDDLEWARE_CLASSES += (
+        # prevent loading the site in an Iframe.
+        'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    )
+    
+    X_FRAME_OPTIONS = 'SAMEORIGIN' # or DENY

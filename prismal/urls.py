@@ -26,5 +26,5 @@ urlpatterns += solid_i18n_patterns('',
     url(r'^$', TemplateView.as_view(template_name="prismal/index.html"), name="index"),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^resume/', include('resume.urls', namespace="resume")),
-    
+    #url(r'^blog/', include('resume.urls', namespace="resume")),
 )
