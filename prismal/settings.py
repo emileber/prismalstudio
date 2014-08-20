@@ -29,11 +29,14 @@ SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = bool(os.environ.get('DEBUG', False)) # set to true locally
 TEMPLATE_DEBUG = bool(os.environ.get('DEBUG', False)) # set to true locally
 
+DOMAIN_NAME = '.prismalstudio.com'
+
+
 # set to all '*' locally for testing with env var.
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', [
     #'127.0.0.1', # staticfile handling specificly doesn't work on debug false
     '.prismalstudio.herokuapp.com',
-    '.prismalstudio.com',
+    DOMAIN_NAME,
 ])
 
 # Application definition

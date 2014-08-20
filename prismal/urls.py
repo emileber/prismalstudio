@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, RedirectView
 from django.conf import settings
 from solid_i18n.urls import solid_i18n_patterns
 #from django.utils.translation import ugettext_lazy as _
@@ -26,5 +26,5 @@ urlpatterns += solid_i18n_patterns('',
     url(r'^$', TemplateView.as_view(template_name="prismal/index.html"), name="index"),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^resume/', include('resume.urls', namespace="resume")),
-    #url(r'^blog/', include('resume.urls', namespace="resume")),
+    url(r'^blog/', RedirectView.as_view(url='http://blog.prismalstudio.com'), name="blog"),
 )
