@@ -107,21 +107,24 @@ a.pure-button-primary {
 	color: black;
 	font-weight: 400;
 	font-size: 120%;
-	padding-top:8px;
+	padding-top: 8px;
 }
 
 .home-menu a {
 	color: black;
 }
 
-.home-menu .pure-menu-selected a,.home-menu li a:hover,.home-menu li a:focus{
-	background-color: #F2F2F2;
-	border-top: solid 6px #ADADAD;
-	border-left: solid 7px #D8D8D8;
+.pure-menu li a {
+	border: none;
+	padding: 7px 18px 7px 23px;
 }
 
-.home-menu .pure-menu-selected a {
-	color: black;
+.home-menu .pure-menu-selected a,.home-menu li a:hover,.home-menu li a:focus
+	{
+	background-color: #F2F2F2;
+	border-top: solid 5px #ADADAD;
+	border-left: solid 5px #D8D8D8;
+	padding: 6px 18px;
 }
 
 .home-menu li a:hover,.home-menu li a:focus {
@@ -195,7 +198,7 @@ a.pure-button-primary {
 	width: 100%;
 	height: 100%;
 	z-index: 0;
-	position: absolute;
+	
 	/*background: url(/static/prismal/img/prismal_seat.jpg) bottom right no-repeat;*/
 }
 
@@ -308,8 +311,13 @@ a.pure-button-primary {
  * of the mobile and tablet styles.
  */
 @media ( min-width : 78em) {
+
 	/* We increase the header font size even more */
 	.splash-head {
 		font-size: 500%;
+	}
+	#prismal-seat-container {
+		height: 100%;
+		position: absolute;
 	}
 }
