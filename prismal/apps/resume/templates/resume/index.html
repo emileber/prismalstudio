@@ -16,7 +16,7 @@
 
 
 
-{%block title %}{% trans "Projects" %} | Prismal Studio{% endblock %}
+{%block title %}{% trans "Projects" %} | {% endblock %}
 
 {% block additional_style %}
 <link rel="stylesheet" type="text/css"	href="{% static 'resume/css/style.css' %}" />
@@ -24,26 +24,35 @@
 
 
 {% block body %}
-<div class="content-wrapper">
-<div class="content">
-
-{% include "setlang.html" %}
-
-{% trans "This is the title" as the_title %}
-<h1>{{ the_title }}</h1>
-<p>{% trans "The list" %}:</p>
-{% if latest_occupation_list %}
-<ul>
-	{% for occupation in latest_occupation_list %}
-	<li>{{ occupation }}</li> {% endfor %}
-</ul>
-{% else %}
-<p>{% trans "No life occupation are available." %}</p>
-{% endif %}
 
 
 
-
+<div class="splash-container">
+    <div class="splash">
+        <h1 class="splash-head">{% trans "Projects" %}</h1>
+    </div>
 </div>
+
+<div class="content-wrapper">
+	<div class="content">
+	
+	{% include "setlang.html" %}
+	
+	{% trans "This is the title" as the_title %}
+	<h1>{{ the_title }}</h1>
+	<p>{% trans "The list" %}:</p>
+	{% if latest_occupation_list %}
+	<ul>
+		{% for occupation in latest_occupation_list %}
+		<li>{{ occupation }}</li> {% endfor %}
+	</ul>
+	{% else %}
+	<p>{% trans "No life occupation are available." %}</p>
+	{% endif %}
+	
+	
+	
+	
+	</div>
 </div>
 {% endblock %}

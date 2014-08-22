@@ -1,146 +1,138 @@
-{% extends "prismal/base.html" %}
-{% comment %}
+{% extends "prismal/base.html" %} {% comment %}
 <!-- 
 @file		index.html
 @author		Emile Bergeron
 @date		2014/06/05
 @app		prismal
  -->
-{% endcomment %}
-
-{% load staticfiles %}
-{% load i18n %}
-
-
-{% block body %}
+{% endcomment %} {% load staticfiles %} {% load i18n %} {% block body %}
 
 
 
 <div class="splash-container">
-    <div class="splash">
-        <h1 class="splash-head">Prismal Studio</h1>
-        <p class="splash-subhead">
-           {% trans 'All original content.' %}
-        </p>
-    </div>
+	<div class="splash">
+		<h1 class="splash-head">Prismal Studio</h1>
+		<p class="splash-subhead">{% trans 'All original content.' %}</p>
+	</div>
 </div>
 
 <div id="prismal-seat-container">
 	<div id="prismal-seat">
-		<img src="{% static 'prismal/img/prismal_seat.jpg' %}" alt="prismal pink seat logo" />
+		<img src="{% static 'prismal/img/prismal_seat.jpg' %}"
+			alt="prismal pink seat logo" />
 	</div>
 </div>
 
 <div class="content-wrapper">
 
 	
+
+	<div class="ribbon l-box-lrg pure-g">
+		<div class="l-box-lrg is-center pure-u-1 pure-u-med-1-2 pure-u-lrg-2-5">
+			<img class="pure-img-responsive" alt="File Icons" width="300"
+				src="{% static 'common/img/file-icons.png' %}">
+		</div>
+		<div class="pure-u-1 pure-u-med-1-2 pure-u-lrg-3-5">
+
+			<h2 class="content-head content-head-ribbon">Laboris nisi ut aliquip.</h2>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+				eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+				veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+				commodo consequat. Duis aute irure dolor.</p>
+		</div>
+	</div>
 	
-    <div class="content">
-        <h2 class="content-head is-center">Excepteur sint occaecat cupidatat.</h2>
+	<div class="content" id="{% trans 'projects' %}">
+		<h2 class="content-head is-center">{% trans 'The latest projects' %}</h2>
 
-        <div class="pure-g">
-            <div class="l-box pure-u-1 pure-u-med-1-2 pure-u-lrg-1-4">
+		<div class="pure-g">
+			<div class="l-box pure-u-1 pure-u-med-1-2 pure-u-lrg-1-4">
 
-                <h3 class="content-subhead">
-                    <i class="fa fa-rocket"></i>
-                    Get Started Quickly
-                </h3>
-                <p>
-                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
-                </p>
-            </div>
-            <div class="l-box pure-u-1 pure-u-med-1-2 pure-u-lrg-1-4">
-                <h3 class="content-subhead">
-                    <i class="fa fa-mobile"></i>
-                    Responsive Layouts
-                </h3>
-                <p>
-                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
-                </p>
-            </div>
-            <div class="l-box pure-u-1 pure-u-med-1-2 pure-u-lrg-1-4">
-                <h3 class="content-subhead">
-                    <i class="fa fa-th-large"></i>
-                    Modular
-                </h3>
-                <p>
-                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
-                </p>
-            </div>
-            <div class="l-box pure-u-1 pure-u-med-1-2 pure-u-lrg-1-4">
-                <h3 class="content-subhead">
-                    <i class="fa fa-check-square-o"></i>
-                    Plays Nice
-                </h3>
-                <p>
-                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
-                </p>
-            </div>
-        </div>
-    </div>
+				<h3 class="content-subhead">
+					<i class="fa fa-globe"></i> {% trans 'Website' %}
+				</h3>
+				<p>{% blocktrans %}Which features a responsive layout, translated in two languages and is compliant to the web standards.{% endblocktrans %}</p>
+			</div>
+			<div class="l-box pure-u-1 pure-u-med-1-2 pure-u-lrg-1-4">
+				<h3 class="content-subhead">
+					<i class="fa fa-mobile"></i> Responsive Layouts
+				</h3>
+				<p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse
+					sodales pellentesque elementum.</p>
+			</div>
+			<div class="l-box pure-u-1 pure-u-med-1-2 pure-u-lrg-1-4">
+				<h3 class="content-subhead">
+					<i class="fa fa-th-large"></i> Modular
+				</h3>
+				<p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse
+					sodales pellentesque elementum.</p>
+			</div>
+			<div class="l-box pure-u-1 pure-u-med-1-2 pure-u-lrg-1-4">
+				<h3 class="content-subhead">
+					<i class="fa fa-check-square-o"></i> Plays Nice
+				</h3>
+				<p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse
+					sodales pellentesque elementum.</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="ribbon l-box-lrg pure-g">
+		<div class="l-box-lrg is-center pure-u-1 pure-u-med-1-2 pure-u-lrg-2-5">
+			<img class="pure-img-responsive" alt="File Icons" width="300"
+				src="{% static 'common/img/file-icons.png' %}">
+		</div>
+		<div class="pure-u-1 pure-u-med-1-2 pure-u-lrg-3-5">
 
-    <div class="ribbon l-box-lrg pure-g">
-        <div class="l-box-lrg is-center pure-u-1 pure-u-med-1-2 pure-u-lrg-2-5">
-            <img class="pure-img-responsive" alt="File Icons" width="300" src="{% static 'common/img/file-icons.png' %}">
-        </div>
-        <div class="pure-u-1 pure-u-med-1-2 pure-u-lrg-3-5">
+			<h2 class="content-head content-head-ribbon">Laboris nisi ut aliquip.</h2>
 
-            <h2 class="content-head content-head-ribbon">Laboris nisi ut aliquip.</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+				eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+				veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+				commodo consequat. Duis aute irure dolor.</p>
+		</div>
+	</div>
 
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor.
-            </p>
-        </div>
-    </div>
+	<div class="content">
+		<h2 class="content-head is-center">Dolore magna aliqua. Uis aute irure.</h2>
 
-    <div class="content">
-        <h2 class="content-head is-center">Dolore magna aliqua. Uis aute irure.</h2>
+		<div class="pure-g">
+			<div class="l-box-lrg pure-u-1 pure-u-med-2-5">
+				<form class="pure-form pure-form-stacked">
+					<fieldset>
 
-        <div class="pure-g">
-            <div class="l-box-lrg pure-u-1 pure-u-med-2-5">
-                <form class="pure-form pure-form-stacked">
-                    <fieldset>
+						<label for="email">Your Name</label> <input id="email" type="text"
+							placeholder="Your Name"> <label for="email">Your Email</label> <input
+							id="email" type="email" placeholder="Your Email"> <label
+							for="password">Your Password</label> <input id="password" type="password"
+							placeholder="Your Password">
 
-                        <label for="email">Your Name</label>
-                        <input id="email" type="text" placeholder="Your Name">
+						<button type="submit" class="pure-button">Sign Up</button>
+					</fieldset>
+				</form>
+			</div>
 
+			<div class="l-box-lrg pure-u-1 pure-u-med-3-5">
+				<h4>Contact Us</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+					minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+					ea commodo consequat.</p>
 
-                        <label for="email">Your Email</label>
-                        <input id="email" type="email" placeholder="Your Email">
+				<h4>More Information</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+		</div>
 
-                        <label for="password">Your Password</label>
-                        <input id="password" type="password" placeholder="Your Password">
+	</div>
 
-                        <button type="submit" class="pure-button">Sign Up</button>
-                    </fieldset>
-                </form>
-            </div>
-
-            <div class="l-box-lrg pure-u-1 pure-u-med-3-5">
-                <h4>Contact Us</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.
-                </p>
-
-                <h4>More Information</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="footer l-box is-center">
-        View the source of this layout to learn more. Made with love by the YUI Team.
-    </div>
+	<div class="footer l-box is-center">
+		<div class="pure-menu pure-menu-open pure-menu-horizontal">
+			{% include "setlang.html" %}
+		</div>
+	</div>
 
 </div>
 
@@ -150,31 +142,29 @@
 <script type="text/javascript" src="{% static 'prismal/js/parabola.js' %}"></script>
 <script type="text/javascript" src="{% static 'prismal/js/script.js' %}"></script>
 <script>
+	// DEBUG: to be removed
+	YUI().use('node-base', 'node-event-delegate', function(Y) {
+		// This just makes sure that the href="#" attached to the <a> elements
+		// don't scroll you back up the page.
+		Y.one('body').delegate('click', function(e) {
+			e.preventDefault();
+		}, 'a[href="#"]');
+	});
 
-// DEBUG: to be removed
-YUI().use('node-base', 'node-event-delegate', function (Y) {
-    // This just makes sure that the href="#" attached to the <a> elements
-    // don't scroll you back up the page.
-    Y.one('body').delegate('click', function (e) {
-        e.preventDefault();
-    }, 'a[href="#"]');
-});
+	// on scroll, fade 
+	$(window).scroll(function(i) {
+		//console.log("scroll: " + $(window).scrollTop() + "/" + $(window).height());
+		var distance = $(window).height() / 2;
+		//$('div.splash').css({'opacity':( distance-$(window).scrollTop() )/distance});
 
-// on scroll, fade 
-$(window).scroll(function(i){
-	//console.log("scroll: " + $(window).scrollTop() + "/" + $(window).height());
-	var distance = $(window).height()/2;
-	//$('div.splash').css({'opacity':( distance-$(window).scrollTop() )/distance});
-	
-	fadeOut('div.splash', ( distance-$(window).scrollTop() )/distance);
-})
+		fadeOut('div.splash', (distance - $(window).scrollTop()) / distance);
+	})
 
-// pink seat movement
-var prismalSeat = new PrismalSeat('#prismal-seat');
-$('div.splash-container').mousemove(function(event){
-	prismalSeat.update(event);
-});
-
+	// pink seat movement
+	var prismalSeat = new PrismalSeat('#prismal-seat');
+	$('div.splash-container').mousemove(function(event) {
+		prismalSeat.update(event);
+	});
 </script>
 
 
