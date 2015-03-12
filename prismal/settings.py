@@ -116,6 +116,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     #"django.contrib.messages.context_processors.messages",
     'django.core.context_processors.request',
     'prismal.context_processors.solid_i18n',
+    'prismal.context_processors.external_url',
 )
 
 

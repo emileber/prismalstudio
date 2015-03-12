@@ -12,3 +12,9 @@ def solid_i18n(request):
         'LANGUAGE_DEFAULT': settings.LANGUAGE_CODE,
     }
     return {"solid_i18n": example_vars}
+
+def external_url(request):
+    urls = {
+        'blog': '//blog.prismalstudio.com/'
+    }
+    return {"external_url": urls}
