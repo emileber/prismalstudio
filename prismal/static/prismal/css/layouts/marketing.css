@@ -104,23 +104,27 @@ a.pure-button-primary {
 	position: relative;
 }
 
-.home-menu .pure-menu-heading {
-	color: black;
+.pure-menu.pure-menu-horizontal>.pure-menu-heading {
+	display: none; color : black;
 	font-weight: 400;
 	font-size: 120%;
 	padding-top: 8px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	text-transform: none;
+	font-size: 17pt;
+	color: black;
 }
 
 .home-menu a {
 	color: black;
 }
 
-.pure-menu li a {
+.pure-menu .nav-main li a {
 	border: none;
-	padding: 7px 18px 7px 23px;
+	padding: 9px 18px 8px 23px;
 }
 
-.home-menu .pure-menu-selected a,.home-menu li a:hover,.home-menu li a:focus
+.home-menu .nav-main .pure-menu-selected a,.home-menu .nav-main li a:hover,.home-menu .nav-main li a:focus
 	{
 	background-color: #F2F2F2;
 	border-top: solid 5px #ADADAD;
@@ -130,6 +134,17 @@ a.pure-button-primary {
 
 .home-menu li a:hover,.home-menu li a:focus {
 	color: #ff009d;
+}
+
+.pure-menu.pure-menu-horizontal>ul.nav-lang {
+	float: right;
+	font-size: 11pt;
+	display: none;
+}
+
+.home-menu .nav-lang a:hover {
+	color: #ff009d;
+	background-color: transparent;
 }
 
 /*
@@ -225,6 +240,7 @@ a.pure-button-primary {
 }
 
 .content {
+	
 }
 
 /* This is the class used for the main content headers (<h2>) */
@@ -238,6 +254,7 @@ a.pure-button-primary {
 /* This is a modifier class used when the content-head is inside a ribbon */
 .content-head-ribbon {
 	/*color: white;*/
+	
 }
 
 /* This is the class used for the content sub-headers (<h3>) */
@@ -283,9 +300,16 @@ a.pure-button-primary {
 	.home-menu {
 		text-align: left;
 	}
-	.pure-menu form ul {
-		float: right;
+	.pure-menu.pure-menu-horizontal>.pure-menu-heading {
+		display: inline-block;
 	}
+	.pure-menu.pure-menu-horizontal>ul.nav-lang {
+		display: block;
+	}
+
+	/* 	.pure-menu form ul {
+		float: right;
+	} */
 	.pure-menu.pure-menu-open.pure-menu-fixed {
 		position: fixed;
 	}

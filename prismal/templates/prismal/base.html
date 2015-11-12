@@ -129,13 +129,15 @@
     <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
        {% block nav_menu_header %}<a class="pure-menu-heading" href="{% url 'index' %}">Prismal Studio</a>{% endblock %}
 
-        <ul>
+        <ul class="nav-main">
             <!--  li class="{% active request index_url %}"><a href="{% url 'index' %}">{{ home_link }}</a></li -->
             <li><a href="">{{ about_link }}</a></li>
             <li class="{% active request resume_url %}"><a href="{% url 'resume:resume_index' %}">{{ project_link }}</a></li>
             <li><a href="{{ external_url.blog }}">{{ blog_link }}</a></li>
             <li><a href="">{{ contact_link }}</a></li>
         </ul>
+        
+        {% include "setlang.html" %}
     </div>
     
 </div>

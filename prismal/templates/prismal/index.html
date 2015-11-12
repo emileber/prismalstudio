@@ -22,28 +22,9 @@
 			alt="prismal pink seat logo" />
 	</div>
 </div>
-{% comment %}
 <div class="content-wrapper">
 
-	<div class="content" >
-		<div class="pure-g">
-			<div class="l-box-lrg is-center pure-u-1 pure-u-med-1-2 pure-u-lrg-2-5">
-				<img class="pure-img-responsive" alt="File Icons" width="300"
-					src="{% static 'common/img/file-icons.png' %}">
-			</div>
-			<div class="pure-u-1 pure-u-med-1-2 pure-u-lrg-3-5">
-	
-				<h2 class="content-head content-head-ribbon">Laboris nisi ut aliquip.</h2>
-	
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-					veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-					commodo consequat. Duis aute irure dolor.</p>
-			</div>
-		</div>
-	</div>
 
-	
 	<div class="content" id="{% trans 'projects' %}">
 		<h2 class="content-head is-center">{% trans 'The latest projects' %}</h2>
 
@@ -53,7 +34,7 @@
 				<h3 class="content-subhead">
 					<i class="fa fa-globe"></i> {% trans 'Website' %}
 				</h3>
-				<p>{% blocktrans %}Which features a responsive layout, translated in two languages and is compliant to the web standards.{% endblocktrans %}</p>
+				<p>{% blocktrans %}Which features a responsive layout, translated in two languages and is compliant to the web standards. Its source code is available on Github.{% endblocktrans %}</p>
 			</div>
 			<div class="l-box pure-u-1 pure-u-med-1-2 pure-u-lrg-1-4">
 				<h3 class="content-subhead">
@@ -78,6 +59,27 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="content" >
+		<div class="pure-g">
+			<div class="l-box-lrg is-center pure-u-1 pure-u-med-1-2 pure-u-lrg-2-5">
+				<img class="pure-img-responsive" alt="File Icons" width="300"
+					src="{% static 'common/img/file-icons.png' %}">
+			</div>
+			<div class="pure-u-1 pure-u-med-1-2 pure-u-lrg-3-5">
+	
+				<h2 class="content-head content-head-ribbon">Laboris nisi ut aliquip.</h2>
+	
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+					veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+					commodo consequat. Duis aute irure dolor.</p>
+			</div>
+		</div>
+	</div>
+
+	
+	{% comment %}
 	
 	<div class="ribbon l-box-lrg pure-g">
 		<div class="l-box-lrg is-center pure-u-1 pure-u-med-1-2 pure-u-lrg-2-5">
@@ -95,7 +97,7 @@
 		</div>
 	</div>
 
-
+	{% endcomment %}
 
 	<div class="content">
 		<h2 class="content-head is-center">Dolore magna aliqua. Uis aute irure.</h2>
@@ -131,15 +133,8 @@
 
 	</div>
 
-	<div class="footer l-box is-center">
-		<div class="pure-menu pure-menu-open pure-menu-horizontal">
-			{% include "setlang.html" %}
-		</div>
-	</div>
-
 </div>
 
-{% endcomment %}
 {% endblock %}
 
 {% block javascript %}

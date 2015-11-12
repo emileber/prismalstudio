@@ -29,7 +29,7 @@
                                             (_)___\___/|_| |_| |_|
 
 /* MAIN */
-  Develop & Main Design: Emile Bergeron
+  Develop & Main Design: Emile Bergeron <ber.emile@prismalstudio.com>
   Twitter: @PrismalStudio
 
 /* SITE */
